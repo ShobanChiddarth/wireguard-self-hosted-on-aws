@@ -42,7 +42,7 @@ resource "aws_security_group" "nat_instance_sg" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = [ var.vpc_cidr_block ]
+        security_groups = [ aws_security_group.bastion_sg.id ]
     }
 
     ingress {
