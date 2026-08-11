@@ -5,3 +5,7 @@ output "vpc_id" {
 output "vpc_cidr" {
     value = aws_vpc.WGDemoVPC.cidr_block
 }
+
+output "public_subnet_id" {
+    value = aws_subnet.WGDemoPublicSubnet.id
+}
