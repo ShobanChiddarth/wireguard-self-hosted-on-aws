@@ -23,3 +23,15 @@ module "nat_instance" {
 
     depends_on = [ module.network ] # for EIP -> IGW dependency
 }
+
+module "compute" {
+    source = "./compute"
+
+    public_subnet_id = module.network.public_subnet_id
+    vpc_id = module.network.vpc_id
+
+    bastion_key_name = module.compute_data.bastion_key_name
+
+    my_public_ip = var.my_public_ip
+    ubuntu_ami_id = module.compute_data.ubuntu_ami_id
+}
