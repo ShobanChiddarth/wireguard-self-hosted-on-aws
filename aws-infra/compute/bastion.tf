@@ -1,4 +1,4 @@
-# to be removed (whole resource)
+# TODO: Remove bastion
 locals {
     base_init = <<-EOF
     #!/bin/bash

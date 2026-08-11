@@ -1,9 +1,3 @@
-# Modularise the whole NAT instance in a singla .tf file
-
-# Dependencies
-# - Ubuntu AMI via `data.aws_ami.ubuntu.id`
-# - `subnet_id`
-# - edit the security group appropriately
 
 locals {
     nat_instance_init = <<-EOF
@@ -42,7 +36,7 @@ resource "aws_security_group" "nat_instance_sg" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        security_groups = [ aws_security_group.bastion_sg.id ]
+        security_groups = [ aws_security_group.bastion_sg.id ] # TODO: allow :22 to VPC CIDR instead of bastion
     }
 
     ingress {
