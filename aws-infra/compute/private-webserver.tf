@@ -4,7 +4,9 @@
 # later :22 must be be open to only VPC CIDR
 
 locals {
-  private_webserver_init = <<-EOF
+    private_webserver_init = <<-EOF
+    #!/bin/bash
+
     apt-get update
     apt-get upgrade -y
     apt-get install -y nginx
