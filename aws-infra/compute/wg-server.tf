@@ -6,6 +6,7 @@
 
 locals {
     wg_init = <<-EOF
+    #!/bin/bash
     apt-get update
     apt-get upgrade -y
 
