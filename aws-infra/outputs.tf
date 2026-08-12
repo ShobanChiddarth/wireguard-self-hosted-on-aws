@@ -13,3 +13,7 @@ output "wg_public_ip" {
 output "nat_instance_public_ip" {
     value = module.compute.nat_instance_public_ip
 }
+
+output "wg_private_ip" {
+    value = module.compute.wg_private_ip
+}
