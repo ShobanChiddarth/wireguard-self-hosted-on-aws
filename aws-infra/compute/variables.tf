@@ -29,3 +29,7 @@ variable "my_public_ip" {
 variable "ubuntu_ami_id" {
     type = string
 }
+
+variable "current_region_name" {
+    type = string
+}

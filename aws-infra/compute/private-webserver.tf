@@ -7,6 +7,12 @@ locals {
     private_webserver_init = <<-EOF
     #!/bin/bash
 
+    echo 'Acquire::ForceIPv4 "true";' > /etc/apt/apt.conf.d/99force-ipv4
+
+    until curl -sf --max-time 5 http://${var.current_region_name}.ec2.archive.ubuntu.com > /dev/null; do
+        sleep 5
+    done
+
     apt-get update
     apt-get upgrade -y
     apt-get install -y nginx
