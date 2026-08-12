@@ -9,3 +9,7 @@ output "private_webserver_private_ip" {
 output "wg_public_ip" {
     value = module.compute.wg_public_ip
 }
+
+output "nat_instance_public_ip" {
+    value = module.compute.nat
+}
