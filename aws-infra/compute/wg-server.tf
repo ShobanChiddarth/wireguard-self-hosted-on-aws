@@ -1,8 +1,4 @@
-# TODO: create wireguard admin server here
-# wireguard port must be open to the internet
-# initially :22 open to bastion sg but later
-# :22 blocked (WG EC2 can SSH into self (clients) without needing AWS SG approval)
-# Global TODO: for SSH inbound allow only from wireguard server SG
+# TODO: replace wireguard with netbird
 
 locals {
     wg_init = <<-EOF
@@ -10,7 +6,11 @@ locals {
     apt-get update
     apt-get upgrade -y
 
-    # will do rest later after manual verification
+    apt-get install wireguard -y
+    echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+    sysctl -p
+
+    # will replace wireguard with netbird
 EOF
 }
 
