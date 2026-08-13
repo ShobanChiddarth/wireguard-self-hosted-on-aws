@@ -49,6 +49,7 @@ resource "aws_instance" "wg_server" {
     user_data = local.wg_init
     vpc_security_group_ids = [ aws_security_group.wg_sg.id ]
     key_name = var.management_key_name
+    source_dest_check = false
 
     tags = {
         Name = "wg_server"
